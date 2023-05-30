@@ -19,7 +19,19 @@ function atualizarQuantidadeItensCarrinho() {
 // Função para adicionar um item ao carrinho
 function adicionarItemAoCarrinho() {
     // Lógica para adicionar o item ao carrinho
-    // ...
+    //
+    // Função para adicionar um item ao carrinho
+    public void adicionarItemAoCarrinho(Item item) {
+        // Verifica se o item já está no carrinho
+        if (carrinho.containsKey(item)) {
+            // Se o item já existe, incrementa a quantidade
+            int quantidadeAtual = carrinho.get(item);
+            carrinho.put(item, quantidadeAtual + 1);
+        } else {
+            // Se o item é novo, adiciona ao carrinho com quantidade 1
+            carrinho.put(item, 1);
+        }
+    }
 
     // Atualize a quantidade de itens no carrinho
     quantidadeItensCarrinho++;

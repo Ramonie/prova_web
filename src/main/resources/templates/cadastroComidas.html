@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Postagens</title>
+</head>
+<body>
+<h1> Página de Cadastro de Comiddas</h1>
+<form method="post" th:action="@{/doSalvar}" th:object="${postagem}">
+
+    Nome: <input type="text" th:field="*{nome}">
+    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+    <br />
+
+
+    Descrição: <input type="text" th:field="*{descricao}">
+    <p th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></p>
+    <br />
+
+    Preço: <input type="double" th:field="*{preco}">
+    <p th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></p>
+    <br />
+
+    Destinatário: <input type="text" th:field="*{destinatario}">
+    <p th:if="${#fields.hasErrors('destinatario')}" th:errors="*{destinatario}"></p>
+    <br />
+    <button type="submit">Cadastrar</button>
+</form>
+
+</body>
+</html>

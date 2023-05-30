@@ -48,5 +48,7 @@ public class Comida {
         this.preco = preco;
         this.quantidade = quantidade;
     }
-
+    public void Nome(){
+        this.nome.toUpperCase();
+    }
 }
