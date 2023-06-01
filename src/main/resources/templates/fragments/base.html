@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -52,7 +52,13 @@
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Comida</h1>
             <p class="lead fw-normal text-white-50 mb-0">Especiarias Nordestinas</p>
-            <p>Bem-vindo, <span th:text="${#authentication.principal.username}"></span>!</p>
+<!--            <p>Bem-vindo, <span th:text="${#authentication.principal.username}"></span>!</p>-->
+            <div th:if="${#authentication.principal == 'anonymousUser'}">
+                <p>Bem-vindo, <span th:text="${#authentication.principal}"></span>!</p>
+            </div>
+            <div th:if="${#authentication.principal != 'anonymousUser'}">
+                <p>Bem-vindo, <span th:text="${#authentication.principal.username}"></span>!</p>
+            </div>
         </div>
     </div>
 </div>
