@@ -2,12 +2,14 @@ package com.example.prova_web.controller;
 
 import com.example.prova_web.Model.Comida;
 import com.example.prova_web.Service.ComidaService;
+import com.example.prova_web.Service.FileStorageService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Date;
@@ -17,6 +19,9 @@ import java.util.List;
 public class ComidaController {
     @Autowired
     private ComidaService service;
+
+    @Autowired
+    private FileStorageService fileStorageService;
 
 
     @GetMapping("/admin")
@@ -32,12 +37,12 @@ public class ComidaController {
     }
 
     @PostMapping("/salvar")
-    public String doSave(@ModelAttribute @Valid Comida c, Errors errors, RedirectAttributes redirectAttributes){
+    public String doSave(@ModelAttribute @Valid Comida c, Errors errors, RedirectAttributes redirectAttributes, @RequestParam("file") MultipartFile file){
         if(errors.hasErrors()){
             return "cadastroComidas";
         }else{
+            c.setImageUri(fileStorageService.save(file));
             redirectAttributes.addFlashAttribute("alerta", "Comida " + (c.getId() != null ? "editada" : "cadastrada") + " com sucesso!");
-
             service.save(c);
 
             return "redirect:/admin";

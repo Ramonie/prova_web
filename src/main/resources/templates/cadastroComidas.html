@@ -22,7 +22,7 @@
 <div th:insert="fragments/base :: header"></div>
     <div class="container position-absolute top-50 start-50 translate-middle" style="max-width: 750px;">
         <h1 class="title"> Central de Cadastro e Recadastro </h1>
-        <form method="post" th:action="@{/salvar}" th:object="${comida}">
+        <form method="post" th:action="@{/salvar}" th:object="${comida}" enctype="multipart/form-data">
             <div class="row">
                 <div class="">
                     <input type="hidden" th:field="*{id}">
@@ -43,6 +43,7 @@
                     Quantidade: <input class="form-control" type="number" th:field="*{quantidade}">
                     <p th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}"></p>
                 </div>
+                Imagem:<input type="file" name="file"></br>
                 <div style="max-hight:20px;">
                     <button class="btn btn-primary" type="submit" style="">Cadastrar</button>
                 </div>
