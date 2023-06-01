@@ -2,6 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <div th:insert="fragments/base :: head"></div>
+<!--5) Implemente a rota de (“/admin”) para, a partir de uma solicitação do tipo GET, gerar uma resposta
+contendo no corpo um HTML que contém uma tabela de todos os itens (linhas) que estão presentes
+no banco de dados e que não estão deletados (deleted == null). Para cada item listado adicione um
+link para a rota “/editar” e “/deletar” passando como parâmetro para tal rota o ID do item escolhido.
+Por fim, adicione na página gerada pela rota “/admin” um link para a rota “/cadastro”-->
 
 <body>
 <div th:insert="fragments/base :: header"></div>

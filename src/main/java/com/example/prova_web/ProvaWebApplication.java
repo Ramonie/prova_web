@@ -16,6 +16,9 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 public class ProvaWebApplication implements WebMvcConfigurer {
+	//2) Crie a classe do usuário (id, username, password, isAdmin, etc) que deve implementar a interface
+	//UserDetails. Na aplicação os usuários poderão assumir 2 papeis (roles) “ROLE_ADMIN” e
+	//“ROLE_USER”
 	@Bean
 	CommandLineRunner commandLineRunner(UsuarioRepository usuarioRepository, PasswordEncoder encoder) {
 		return args -> {

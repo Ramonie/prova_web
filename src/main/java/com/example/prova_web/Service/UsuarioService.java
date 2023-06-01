@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+//2) Crie a classe do usuário (id, username, password, isAdmin, etc) que deve implementar a interface
+//UserDetails. Na aplicação os usuários poderão assumir 2 papeis (roles) “ROLE_ADMIN” e
+//“ROLE_USER”.
 @Service
 public class UsuarioService implements UserDetailsService {
     UsuarioRepository repository;

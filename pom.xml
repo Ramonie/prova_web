@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+	//1) Crie um projeto com Spring Initializr incluindo Spring Boot Dev Tools, Lombok, Spring Web,
+	Thymeleaf, Spring Data JPA, PostgreSQL Driver e Spring Validator
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

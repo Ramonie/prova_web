@@ -20,6 +20,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+//1) Crie a classe do modelo
+//conforme o tema escolhido, lembre-se que você precisa adicionar pelo menos 7 atributos (ID,
+//Deleted, ImageUri). Adicione as restrições (validações) do modelo.
 public class Comida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,17 +44,4 @@ public class Comida {
     @Min(value = 0, message = "A quantidade deve ser maior ou igual a zero")
     private int quantidade;
 
-    public void Comida() {
-    }
-
-    public void Comida(long id, Date deleted, String imageUri, String nome, String descricao, double preco,
-            int quantidade) {
-        this.id = id;
-        this.deleted = deleted;
-        this.imageUri = imageUri;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.quantidade = quantidade;
-    }
 }
